@@ -1,0 +1,4 @@
+  iframe+postMessage跨域
+  使用vue.js
+  de1.html位于http://127.0.0.1:8080服务器
+  de2.html位于http://127.0.0.1:8081服务器

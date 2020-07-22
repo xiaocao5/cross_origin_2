@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let personInfoList = [{
+        name: 'Ted',
+        profession: 'programmer',
+        nationality: 'China'
+      }, {
+        name: 'Trump',
+        profession: 'president',
+        nationality: 'USA'
+      }, {
+        name: 'Galileo',
+        profession: 'scientist',
+        nationality: 'Italy'
+      }]
+      window.addEventListener("message", function (e) {
+        if (e.source != window.parent) return;
+        let data = { status: 0 };
+        personInfoList.forEach(function(item, index, array) {
+          if (item.name == e.data) {
+            data = { ...item, status: 1 };
+          }
+        })
+        window.parent.postMessage(data, "*");
+      });
+    </script>
+  </body>
+</html>
